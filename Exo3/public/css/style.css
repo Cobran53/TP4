@@ -35,6 +35,23 @@ header{
 
 #main ul{
   padding : 0;
+  li {
+    display: inline-block;
+    margin-right: 1vw;
+    padding: 5px 10px;
+    border: solid #999999 1px;
+    h3 {
+      text-align: center;
+      color: dodgerblue;
+    }
+    img {
+      display: block;
+      height: 150px;
+      margin-left: auto;
+      margin-right: auto;
+
+    }
+  }
 }
 
 #main form, #main nav > p{
@@ -49,7 +66,38 @@ header{
   text-align: center;
   border: solid 1px black;
   opacity: 0;
-  padding-bottom: 0.5em
+  padding-bottom: 0.5em;
+  top: 50%;
+  right: 50%;
+  img {
+    width: 60px;
+  }
+  h2 {
+    background: dodgerblue;
+    color: white;
+    width: auto;
+    margin-top: 0;
+    margin-bottom: 1vh;
+  }
+  table {
+    margin: 0 auto;
+    width: 100%;
+  }
+  align-content: center;
+}
+
+#albums.seen {
+  visibility: visible;
+  opacity: 1;
+  transition: opacity 1s linear 0s;
+  transform: translate(+50%, -50%);
+}
+
+#albums.unseen {
+  visibility: hidden;
+  opacity: 0;
+  transform: translate(+50%, -50%);
+  transition: opacity 1s linear 0s, visibility 0s linear 1s; /* permet d'attendre 1s avant de ne plus être visible*/
 }
 
 footer{
