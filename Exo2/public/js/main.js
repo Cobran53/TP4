@@ -4,7 +4,7 @@
 // Pas besoin d'évenement window.onload puisqu'on utilise l'attribut defer
 // lorsque l'on charge notre script
 function loadGenres() {
-    fetch('http://localhost:3000/genres')
+    fetch('api/genres')
         .then(
             response => {
                 if (response.ok) {
@@ -45,7 +45,7 @@ async function loadArtists(genres, genre_name) {
     h2.textContent = `Top ${genre['name']} artists`;
     document.querySelector('#main > p').textContent = genre['description'];
 
-    const artists_raw = await fetch(`http://localhost:3000/genres/${genre_name}/artists`);
+    const artists_raw = await fetch(`api/genres/${genre_name}/artists`);
     const artists = await artists_raw.json();
 
     const ul = document.querySelector('#main ul');
@@ -71,7 +71,7 @@ async function loadArtists(genres, genre_name) {
 }
 
 async function artistSelected(evt) {
-    const albums_raw = await fetch(`http://localhost:3000/artists/${evt.target.parentElement.id}/albums`);
+    const albums_raw = await fetch(`api/artists/${evt.target.parentElement.id}/albums`);
     const albums = await albums_raw.json();
 
     const aside = document.querySelector('aside');
